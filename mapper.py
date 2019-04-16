@@ -8,8 +8,10 @@ for line in sys.stdin:
     if line == firstLine: # Ignore the header
         print(result)
         continue
-    vehicles = line.split(',').slice(24)
-    for vehicle in vehicles:
+    entries = line.split(',')
+    for vehicle in entries[-5:-1]:
+        if vehicle == '':
+            continue
         if vehicle not in result:
             result[vehicle] = 0
         result[vehicle] += 1
